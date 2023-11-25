@@ -1,9 +1,56 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Vina+Sans&display=swap');
 
 .primary {
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
+}
+
+.update-button {
+    font-family: 'Poppins', sans-serif;
+    padding: 7px 26px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #95df01, #66ff66);
+    color: white;
+}
+
+.delete-button {
+    font-family: 'Poppins', sans-serif;
+    padding: 7px 26px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #ff0000, #ff4500);
+    color:white;
+}
+
+.add-button {
+    font-family: 'Poppins', sans-serif;
+    padding: 7px 26px;
+    border: none;
+    border-radius: 20px;
+    background: linear-gradient(45deg, #95df01, #66ff66);
+    color: white;
+}
+
+input[placeholder="Title"]::placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: #999; 
+    font-size: 16px; 
+}
+
+.input-field {
+    font-family: 'Poppins', sans-serif;
+}
+
+textarea[placeholder="Description"]::placeholder {
+    font-family: 'Poppins', sans-serif;
+    color: #999; 
+    font-size: 16px; 
+}
+
+.textarea-field {
+    font-family: 'Poppins', sans-serif;
 }
 

@@ -88,8 +88,14 @@ const Home = ({ notes }: Notes) => {
     }
   };
 
+  const newLocal = "https://fonts.googleapis.com/css2?family=Poppins&display=swap"
   return (
-    <div>
+    <>
+       
+        <link
+          href={newLocal} rel="stylesheet"
+        />
+
       <h1 className="text-center font-bold text-5xl my-11 primary">Simple Task Management</h1>
       <form
         onSubmit={(e) => {
@@ -103,15 +109,15 @@ const Home = ({ notes }: Notes) => {
           placeholder="Title"
           value={form.title}
           onChange={(e) => setForm({ ...form, title: e.target.value })}
-          className="border-2 rounded border-gray-600 p-1"
+          className="border-2 rounded border-gray-600 p-1 input-field"
         />
         <textarea
           placeholder="Description"
           value={form.description}
           onChange={(e) => setForm({ ...form, description: e.target.value })}
-          className="border-2 rounded border-gray-600 p-1"
+          className="border-2 rounded border-gray-600 p-1 textarea-field"
         />
-        <button type="submit" className="bg-lime-500 text-neutral-50 rounded-full p-2 font-bold">
+        <button type="submit" className="text-neutral-50 rounded-full p-2 font-bold hover:text-black transition-all duration-300 add-button">
           Add Task
         </button>
       </form>
@@ -120,29 +126,29 @@ const Home = ({ notes }: Notes) => {
           {notes.map((note) => (
             <li key={note.id} className="border-b border-gray-600 p-2">
               <div className="flex justify-between items-center">
-                <input
-                  type="checkbox"
-                  checked={note.completed}
-                  onChange={() => handleCheckboxChange(note.id, !note.completed)}
-                  className="rounded-full h-5 w-5"
-                />
+                  <input
+                    type="checkbox"
+                    checked={note.completed}
+                    onChange={() => handleCheckboxChange(note.id, !note.completed)}
+                    className="rounded-full h-5 w-5"
+                  />
                 <div className="flex-1 ms-3 text-2xl primary">
-                  <h3 className={`font-bold ${note.completed ? 'line-through' : ''}`}>
+                  <h3 className={`font-bold ${note.completed}`}>
                     {note.title}
                   </h3>
-                  <p className={`text-sm ${note.completed ? 'line-through' : ''}`}>
+                  <p className={`text-sm ${note.completed}`}>
                     {note.description}
                   </p>
                 </div>
                 <button
                   onClick={() => setForm({ title: note.title, description: note.description, id: note.id })}
-                  className="bg-transparent border border-lime-500 text-lime-500 px-3 rounded font-bold text-1xl hover:text-black transition-all duration-300"
+                  className="bg-transparent border text-lime-500 px-3 rounded font-bold text-1xl hover:text-black transition-all duration-300 update-button"
                 >
                   Update
                 </button>
                 <button
                   onClick={() => deleteNote(note.id)}
-                  className="ms-2 bg-transparent border border-lime-500 text-lime-500 px-3 rounded font-bold text-1xl hover:text-black transition-all duration-300"
+                  className="ms-2 bg-transparent border text-lime-500 px-3 rounded font-bold text-1xl hover:text-black transition-all duration-300 delete-button"
                 >
                   Delete
                 </button>
@@ -151,7 +157,7 @@ const Home = ({ notes }: Notes) => {
           ))}
         </ul>
       </div>
-    </div>
+    </>
   );
 };
 
